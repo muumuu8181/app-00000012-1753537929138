@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meteor Storm - 超絶格好良い隕石落下アニメーション</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1 class="app-title">
+                <span class="title-main">METEOR STORM</span>
+                <span class="title-sub">隕石落下シミュレーター</span>
+            </h1>
+            <div class="version">v1.0</div>
+        </header>
+
+        <div class="controls-panel">
+            <div class="control-group">
+                <label class="control-label">隕石タイプ</label>
+                <select id="meteorType" class="control-select">
+                    <option value="normal">通常隕石</option>
+                    <option value="fire">火炎隕石</option>
+                    <option value="ice">氷結隕石</option>
+                    <option value="electric">電撃隕石</option>
+                    <option value="plasma">プラズマ隕石</option>
+                    <option value="rainbow">虹色隕石</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">落下強度</label>
+                <input type="range" id="intensity" min="1" max="10" value="5" class="control-slider">
+                <span id="intensityValue" class="slider-value">5</span>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">隕石サイズ</label>
+                <input type="range" id="meteorSize" min="1" max="5" value="3" class="control-slider">
+                <span id="sizeValue" class="slider-value">3</span>
+            </div>
+
+            <div class="control-buttons">
+                <button id="startBtn" class="control-btn primary">
+                    <span class="btn-icon">🌠</span>
+                    <span class="btn-text">隕石雨開始</span>
+                </button>
+                <button id="stopBtn" class="control-btn secondary">
+                    <span class="btn-icon">⏹</span>
+                    <span class="btn-text">停止</span>
+                </button>
+                <button id="resetBtn" class="control-btn">
+                    <span class="btn-icon">🔄</span>
+                    <span class="btn-text">リセット</span>
+                </button>
+                <button id="soundBtn" class="control-btn">
+                    <span class="btn-icon">🔊</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="stats-panel">
+            <div class="stat-item">
+                <span class="stat-label">落下数</span>
+                <span class="stat-value" id="meteorCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">衝撃力</span>
+                <span class="stat-value" id="impactPower">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">破壊レベル</span>
+                <span class="stat-value" id="destructionLevel">CALM</span>
+            </div>
+        </div>
+
+        <div class="scene-container">
+            <canvas id="meteorCanvas" class="meteor-canvas"></canvas>
+            <div class="atmosphere-layer"></div>
+            <div class="star-field" id="starField"></div>
+            
+            <div class="impact-effects" id="impactEffects"></div>
+            <div class="shock-waves" id="shockWaves"></div>
+            
+            <div class="ground-layer">
+                <div class="landscape"></div>
+                <div class="cityscape"></div>
+            </div>
+        </div>
+
+        <div class="sound-visualizer" id="soundVisualizer">
+            <div class="visualizer-bar"></div>
+            <div class="visualizer-bar"></div>
+            <div class="visualizer-bar"></div>
+            <div class="visualizer-bar"></div>
+            <div class="visualizer-bar"></div>
+        </div>
+
+        <div class="notification-system" id="notifications"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
